@@ -1,0 +1,17 @@
+{
+  "name": "devcampapi",
+  "version": "1.0.0",
+  "description": "dev camper backend api",
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_ENV=production node server",
+    "dev":"nodemon server"
+  },
+  "author": "ramesh",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  }
+}
