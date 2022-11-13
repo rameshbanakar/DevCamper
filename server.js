@@ -1,10 +1,15 @@
 const express = require("express");
 const dotenv = require("dotenv");
-// const logger=require("./middleware/logger")
-const morgan=require("morgan")
-const bootcamp=require("./router/bootcamp")
-//load enviormental variable
 dotenv.config({ path: "./config/config.env" });
+const connectDB=require("./config/db")
+connectDB()
+// const logger=require("./middleware/logger")
+
+const morgan=require("morgan")
+const bootcamp=require("./router/bootcamp");
+
+//load enviormental variable
+
 const app = express();
 
 //app.use(logger)
@@ -19,3 +24,8 @@ app.listen(port, () => {
     `server running in ${process.env.NODE_ENV} mode and port is ${process.env.PORT}`
   );
 });
+
+//unhandled promises
+process.on("unhandledRejection",(err,promise)=>{
+  console.log(`error:${err}`)
+})
