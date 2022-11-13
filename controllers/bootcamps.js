@@ -1,5 +1,5 @@
 const Bootcamp = require("../models/Bootcamp");
-// @desc get all bootcamps
+//@desc get all bootcamps
 //@route /api/v1/bootcamps
 //@access public
 exports.getBootCamps = async (req, res, next) => {
@@ -27,7 +27,7 @@ exports.getBootCamp = async (req, res, next) => {
   }
 };
 
-// @desc create one bootcamps
+//@desc create one bootcamps
 //@route post /api/v1/bootcamps
 //@access private
 exports.postBootCamp = async (req, res, next) => {
