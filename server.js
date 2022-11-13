@@ -12,7 +12,8 @@ const bootcamp = require("./router/bootcamp");
 //load enviormental variable
 
 const app = express();
-
+//body parser
+app.use(express.json())
 //app.use(logger)
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
@@ -29,5 +30,5 @@ app.listen(port, () => {
 //unhandled promises
 process.on("unhandledRejection", (err, promise) => {
   console.log(`error:${err.message}`.red);
-  Server.close(() => process.exit(1));
+  server.close(() => process.exit(1));
 });
