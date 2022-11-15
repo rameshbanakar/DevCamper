@@ -9,6 +9,8 @@ connectDB();
 
 const morgan = require("morgan");
 const bootcamp = require("./router/bootcamp");
+const courses = require("./router/courses");
+
 
 //load enviormental variable
 
@@ -20,6 +22,8 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 app.use("/api/v1/bootcamps", bootcamp);
+app.use("/api/v1/courses", courses);
+
 app.use(errorHandler)
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
