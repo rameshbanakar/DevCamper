@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const colors = require("colors");
 const path = require("path");
 const fileupload = require("express-fileupload");
+const cookieParser=require("cookie-parser")
 const errorHandler = require("./middleware/error");
 dotenv.config({ path: "./config/config.env" });
 const connectDB = require("./config/db");
@@ -27,7 +28,7 @@ if (process.env.NODE_ENV === "development") {
 app.use(fileupload());
 //set static folder
 app.use(express.static(path.join(__dirname, "public")));
-
+app.use(cookieParser())
 app.use("/api/v1/bootcamps", bootcamp);
 app.use("/api/v1/courses", courses);
 app.use("/api/v1/auth",auth)
