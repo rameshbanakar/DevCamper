@@ -12,7 +12,7 @@ connectDB();
 const morgan = require("morgan");
 const bootcamp = require("./router/bootcamp");
 const courses = require("./router/courses");
-
+const auth=require("./router/auth")
 //load enviormental variable
 
 const app = express();
@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/api/v1/bootcamps", bootcamp);
 app.use("/api/v1/courses", courses);
-
+app.use("/api/v1/auth",auth)
 app.use(errorHandler);
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
